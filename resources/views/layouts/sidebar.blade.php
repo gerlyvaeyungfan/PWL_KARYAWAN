@@ -21,7 +21,7 @@
                 </a>
             </li>
 
-            <li class="nav-header">Data Karyawan</li>
+            <li class="nav-header">Data Perusahaab</li>
             <li class="nav-item">
                 <a href="{{ url('/jabatan') }}" class="nav-link {{ ($activeMenu == 'jabatan') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-briefcase"></i>
@@ -32,6 +32,14 @@
                 <a href="{{ url('/karyawan') }}" class="nav-link {{ ($activeMenu == 'karyawan') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-users"></i>
                     <p>Data Karyawan</p>
+                </a>
+            </li>
+
+            <li class="nav-header">Data Transaksi</li>
+            <li class="nav-item">
+                <a href="{{ url('/gaji') }}" class="nav-link {{ ($activeMenu == 'gaji') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-money-bill-wave"></i>
+                    <p>Data Gaji Karyawan</p>
                 </a>
             </li>
         </ul>

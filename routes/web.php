@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\GajiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +54,22 @@ Route::group(['prefix' => 'jabatan'], function () {
     // Delete AJAX
     Route::get('/{id}/delete_ajax', [JabatanController::class, 'confirm_ajax']);
     Route::delete('/{id}/delete_ajax', [JabatanController::class, 'delete_ajax']);
+});
+
+// route CRUD gaji
+Route::group(['prefix' => 'gaji'], function () {
+    Route::get('/', [GajiController::class, 'index']);
+    Route::post('/list', [GajiController::class, 'list']);
+
+    // Create AJAX
+    Route::get('/create_ajax', [GajiController::class, 'create_ajax']);
+    Route::post('/ajax', [GajiController::class, 'store_ajax']);
+
+    // Edit AJAX
+    Route::get('/{id}/edit_ajax', [GajiController::class, 'edit_ajax']);
+    Route::put('/{id}/update_ajax', [GajiController::class, 'update_ajax']);
+
+    // Delete AJAX
+    Route::get('/{id}/delete_ajax', [GajiController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax', [GajiController::class, 'delete_ajax']);
 });
