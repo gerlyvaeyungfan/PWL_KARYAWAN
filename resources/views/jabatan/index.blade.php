@@ -24,7 +24,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_jabatan">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama Jabatan</th>
                     <th>Keterangan</th>
                     <th>Aksi</th>
@@ -63,10 +63,10 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
             },
             columns: [
                 {
-                    data: "jabatan_id", // Kolom ID jabatan dari DB
+                    data: "DT_RowIndex",
                     className: "text-center",
-                    orderable: true,
-                    searchable: true
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: "nama_jabatan", // Nama jabatan

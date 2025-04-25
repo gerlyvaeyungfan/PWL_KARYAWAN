@@ -34,7 +34,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_karyawan">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Jabatan</th>
                     <th>Alamat</th>
@@ -77,10 +77,10 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
             },
             columns: [
                 {
-                    data: "karyawan_id",
+                    data: "DT_RowIndex",
                     className: "text-center",
-                    orderable: true,
-                    searchable: true
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: "nama",

@@ -35,10 +35,6 @@
                     </div>
                     <table class="table table-sm table-bordered table-striped">
                         <tr>
-                            <th class="text-right col-3">ID Karyawan:</th>
-                            <td class="col-9">{{ $karyawan->karyawan_id }}</td>
-                        </tr>
-                        <tr>
                             <th class="text-right">Nama:</th>
                             <td>{{ $karyawan->nama }}</td>
                         </tr>

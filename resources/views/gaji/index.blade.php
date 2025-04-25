@@ -34,7 +34,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_gaji">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama Karyawan</th>
                     <th>Tanggal</th>
                     <th>Gaji Pokok</th>
@@ -79,7 +79,12 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
                 }
             },
             columns: [
-                { data: "transaksi_id", className: "text-center" },
+                {
+                    data: "DT_RowIndex",
+                    className: "text-center",
+                    orderable: false,
+                    searchable: false
+                },
                 { data: "karyawan.nama" },
                 { data: "tanggal_transaksi" },
                 { data: "gaji_pokok", className: "text-right" },

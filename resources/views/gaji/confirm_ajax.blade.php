@@ -38,10 +38,6 @@
 
                     <table class="table table-sm table-bordered table-striped">
                         <tr>
-                            <th class="text-right col-4">ID Transaksi:</th>
-                            <td class="col-8">{{ $gaji->transaksi_id }}</td>
-                        </tr>
-                        <tr>
                             <th class="text-right">Nama Karyawan:</th>
                             <td>{{ $gaji->karyawan->nama }}</td>
                         </tr>
