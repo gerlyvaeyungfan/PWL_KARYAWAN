@@ -17,20 +17,6 @@
         @if (session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="jabatan_id">Filter Jabatan:</label>
-                    <select class="form-control" id="jabatan_id" name="jabatan_id" required>
-                        <option value="">- Semua Jabatan -</option>
-                        @foreach ($jabatan as $item)
-                            <option value="{{ $item->jabatan_id }}">{{ $item->nama_jabatan }}</option>
-                        @endforeach
-                    </select>
-                    <small class="form-text text-muted">Filter berdasarkan jabatan karyawan</small>
-                </div>
-            </div>
-        </div>
         <table class="table table-bordered table-striped table-hover table-sm" id="table_karyawan">
             <thead>
                 <tr>
@@ -70,10 +56,7 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
             ajax: {
                 url: "{{ url('karyawan/list') }}",
                 dataType: 'json',
-                type: 'POST',
-                data: function (d) {
-                    d.jabatan_id = $('#jabatan_id').val();
-                }
+                type: 'POST'
             },
             columns: [
                 {
@@ -104,8 +87,11 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
                 },
                 {
                     data: "email",
-                    orderable: true,
-                    searchable: true
+                    orderable: false,
+                    searchable: true,
+                    render: function(data, type, row) {
+                        return data ? data : '-';
+                    }
                 },
                 {
                     data: "aksi",

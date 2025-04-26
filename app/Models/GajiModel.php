@@ -22,11 +22,12 @@ class GajiModel extends Model
         'keterangan',
     ];
 
-    /**
-     * Relasi ke model KaryawanModel
-     *
-     * @return BelongsTo
-     */
+    // Supaya tidak null
+    protected $attributes = [
+        'tunjangan' => 0,
+        'potongan' => 0,
+    ];
+
     public function karyawan(): BelongsTo
     {
         return $this->belongsTo(KaryawanModel::class, 'karyawan_id', 'karyawan_id');

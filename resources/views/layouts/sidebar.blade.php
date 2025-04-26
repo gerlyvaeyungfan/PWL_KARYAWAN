@@ -21,7 +21,7 @@
                 </a>
             </li>
 
-            <li class="nav-header">Data Perusahaab</li>
+            <li class="nav-header">Data Perusahaan</li>
             <li class="nav-item">
                 <a href="{{ url('/jabatan') }}" class="nav-link {{ ($activeMenu == 'jabatan') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-briefcase"></i>

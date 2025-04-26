@@ -21,25 +21,21 @@
                     <small id="error-karyawan_id" class="error-text text-danger"></small>
                 </div>
                 <div class="form-group">
-                    <label>Tanggal Transaksi</label>
-                    <input type="datetime-local" name="tanggal_transaksi" id="tanggal_transaksi" class="form-control" required>
-                    <small id="error-tanggal_transaksi" class="error-text text-danger"></small>
-                </div>
-                <div class="form-group">
                     <label>Gaji Pokok</label>
                     <input type="number" name="gaji_pokok" id="gaji_pokok" class="form-control" required>
                     <small id="error-gaji_pokok" class="error-text text-danger"></small>
                 </div>
                 <div class="form-group">
                     <label>Tunjangan</label>
-                    <input type="number" name="tunjangan" id="tunjangan" class="form-control" required>
+                    <input type="number" name="tunjangan" id="tunjangan" class="form-control" value="0" min="0">
                     <small id="error-tunjangan" class="error-text text-danger"></small>
                 </div>
                 <div class="form-group">
                     <label>Potongan</label>
-                    <input type="number" name="potongan" id="potongan" class="form-control" required>
+                    <input type="number" name="potongan" id="potongan" class="form-control" value="0" min="0">
                     <small id="error-potongan" class="error-text text-danger"></small>
                 </div>
+                
                 <div class="form-group">
                     <label>Total Gaji</label>
                     <input type="text" id="total_gaji" class="form-control font-weight-bold text-primary" readonly>
@@ -98,10 +94,9 @@
         $("#form-tambah-gaji").validate({
             rules: {
                 karyawan_id: { required: true },
-                tanggal_transaksi: { required: true },
                 gaji_pokok: { required: true, number: true, min: 0 },
-                tunjangan: { required: true, number: true, min: 0 },
-                potongan: { required: true, number: true, min: 0 }
+                tunjangan: { number: true, min: 0 },
+                potongan: { number: true, min: 0 }
             },
             submitHandler: function(form) {
                 calculateTotalGaji();

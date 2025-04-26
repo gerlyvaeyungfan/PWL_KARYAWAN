@@ -57,13 +57,13 @@
 
                     <div class="form-group">
                         <label>Tunjangan</label>
-                        <input type="number" name="tunjangan" value="{{ $gaji->tunjangan }}" class="form-control" required>
+                        <input type="number" name="tunjangan" value="{{ $gaji->tunjangan }}" class="form-control" value="0" min="0">
                         <small id="error-tunjangan" class="form-text text-danger"></small>
                     </div>
 
                     <div class="form-group">
                         <label>Potongan</label>
-                        <input type="number" name="potongan" value="{{ $gaji->potongan }}" class="form-control" required>
+                        <input type="number" name="potongan" value="{{ $gaji->potongan }}" class="form-control" value="0" min="0">
                         <small id="error-potongan" class="form-text text-danger"></small>
                     </div>
 
@@ -98,6 +98,7 @@
                 $('#total_gaji').val(total.toFixed(2));
                 $('#total_gaji_input').val(total.toFixed(2));
             }
+            calculateTotalGaji();
 
             $('[name="gaji_pokok"], [name="tunjangan"], [name="potongan"]').on('input', calculateTotalGaji);
 
@@ -106,8 +107,8 @@
                     karyawan_id: { required: true },
                     tanggal_transaksi: { required: true },
                     gaji_pokok: { required: true, number: true, min: 0 },
-                    tunjangan: { required: true, number: true, min: 0 },
-                    potongan: { required: true, number: true, min: 0 }
+                    tunjangan: { number: true, min: 0 },
+                    potongan: { number: true, min: 0 }
                 },
                 submitHandler: function(form) {
                     $('.form-text.text-danger').text('');

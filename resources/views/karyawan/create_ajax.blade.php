@@ -56,8 +56,7 @@
                 nama: { required: true, minlength: 3, maxlength: 100 },
                 jabatan_id: { required: true, number: true },
                 alamat: { required: true, minlength: 5 },
-                telepon: { required: true, minlength: 6, maxlength: 15 },
-                email: { email: true }
+                telepon: { required: true, minlength: 6, maxlength: 15 }
             },
             submitHandler: function(form) {
                 $.ajax({

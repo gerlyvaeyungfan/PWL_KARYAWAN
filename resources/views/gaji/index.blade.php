@@ -17,20 +17,6 @@
         @if (session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="karyawan_id">Filter Karyawan:</label>
-                    <select class="form-control" id="karyawan_id" name="karyawan_id" required>
-                        <option value="">- Semua Karyawan -</option>
-                        @foreach ($karyawan as $item)
-                            <option value="{{ $item->karyawan_id }}">{{ $item->nama }}</option>
-                        @endforeach
-                    </select>
-                    <small class="form-text text-muted">Filter berdasarkan karyawan</small>
-                </div>
-            </div>
-        </div>
         <table class="table table-bordered table-striped table-hover table-sm" id="table_gaji">
             <thead>
                 <tr>
@@ -73,10 +59,7 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
             ajax: {
                 url: "{{ url('gaji/list') }}",
                 dataType: 'json',
-                type: 'POST',
-                data: function (d) {
-                    d.karyawan_id = $('#karyawan_id').val();  // Mengambil filter karyawan_id
-                }
+                type: 'POST'
             },
             columns: [
                 {
@@ -91,7 +74,11 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
                 { data: "tunjangan", className: "text-right" },
                 { data: "potongan", className: "text-right" },
                 { data: "total_gaji", className: "text-right" },
-                { data: "keterangan" },
+                { data: "keterangan",
+                    render: function(data, type, row) {
+                        return data ? data : '-';
+                    }
+                },
                 {
                     data: "aksi",
                     className: "text-center",

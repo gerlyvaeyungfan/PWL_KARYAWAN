@@ -78,7 +78,10 @@ data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"
                     data: "keterangan", // Deskripsi atau info tambahan
                     className: "",
                     orderable: false,
-                    searchable: true
+                    searchable: true,
+                    render: function(data, type, row) {
+                        return data ? data : '-';
+                    }
                 },
                 {
                     data: "aksi", // Tombol edit/delete
